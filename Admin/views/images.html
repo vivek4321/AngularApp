@@ -1,0 +1,75 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="col-md-12">
+        <!-- <form id="uploadPic" role="form" class="form-horizontal" action="PHP/phpFileUploading.php" method="post" enctype="multipart/form-data">
+            Rootpath:
+            <p>ex:foldername/foldername/image</p>
+            <input type="text" name="directoryPath" ng-model="image.rootPath" id="directoryPathId" class="form-control">
+            Select image to upload:
+            <input type="file" name="fileToUpload" ng-model="image.imageName" class="form-control" id="fileToUpload">
+            Image Gallery name
+            <input type="text" name="galleryName" ng-model="image.galleryName" class="form-control" >
+            <input type="submit" value="Upload Image" ng-click="addImages(image)" class="form-control" name="submit">
+        </form> -->
+        <iframe class="col-md-12" class="formcontrol"  height='500' src="http://localhost/Admin/PHP/fileUploading.html"></iframe>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <div class="row">
+          <!-- <button class='btn btn-primary col-md-4 form-control' ng-click='deleteTrailer(2,2)'>Pause Video</button> <br><br> -->
+          <input type="text" class="form-control" ng-model="queryImg" placeholder="search"><br>
+          <div class="col-md-4" ng-repeat="showImage in showImages | filter:queryImg | orderBy : 'imageID'">
+            <p>ID:{{showImage.imageID}}Galery Name:{{showImage.galleryName}}</p>
+            <p style="width:300px; text-align:justify; word-break:break-all;" > rootPath:{{showImage.rootPath}} </p>
+            <a href=""> <img alt="img" class="img-thumbnail" width="300" height="236" ng-src="{{showImage.rootPath}}" /></a>
+                                      <!-- Button trigger modal -->
+              <button type="button" value={{showImage.rootPath}} id={{showTrailer.imageID}}  class="btn btn-primary btn-md"  data-toggle="modal" data-target="#myModal">
+                View
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <!-- <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div> -->
+                    <div width='640' height='360' class="modal-body">
+                      <div class="row">
+                        <div class="col-md-4"></div>
+                      <div id=parent_video>
+                      <div id="video"></div>
+                      </div>
+                        <div class="col-md-4"></div>
+                      <br><br><br>
+                    </div>
+                    </div>
+
+                    <!-- <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+
+            <button type="btn" class="btn btn-primary" ng-click="deleteImage(showImage.imageID)">Delete</button><br>
+          </div>
+        </div>
+        <div class="row">
+            <!-- <center><h2>View all Viedios</h2></center> -->
+          <div  >
+            <!-- <div id="title"></div><br> -->
+            <!-- <div id=parent_video>
+            <div id="video"></div><br>
+            </div> -->
+            <!-- <div id="deleteTrailerButton"></div><br> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

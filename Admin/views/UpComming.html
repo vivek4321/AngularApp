@@ -1,0 +1,101 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="">
+        <form role="form" class="form-horizontal" name="add-trailers-form" >
+          <h3>Add Up Comming Movies Video</h3>
+          <div class="row">
+            <div class="form-group">
+              <label class="col-md-3">Movie Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="movie.movieName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">ditector & Producer</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="movie.ditectorProducer">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">Movie cast</label>
+              <div class="col-md-9">
+                <textarea rows="5" type="text" class="form-control" ng-model="movie.cast"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">others</label>
+              <div class="col-md-9">
+                <textarea rows="5" type="text" class="form-control" ng-model="movie.others"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">Movie expReleaseDate</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="movie.expReleaseDate">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">pic Route </label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="movie.picRoute">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">Movie details</label>
+              <div class="col-md-9">
+                <textarea rows="5" type="text" class="form-control" ng-model="movie.details"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3"></label>
+              <div class="col-md-9">
+                <button type"button" ng-click="addUCMovie(movie)" class="btn btn-primary pull-right">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <div class="row">
+          <input type="text" class="form-control" ng-model="queryUCMovies" placeholder="search"><br>
+          <div class="col-md-4" ng-repeat="movie in upMovies | filter:queryUCMovies | orderBy : 'trailerId'">
+            <p >ID: {{movie.movieId}}</p>
+            <p >Movie: {{movie.movieName}}</p>
+                          <!-- Button trigger modal -->
+              <button type="button" value={{movie.movieName}} id={{movie.movieId}} ng-click="getUCMovieById(movie.movieId)" class="btn btn-primary btn-md"  data-toggle="modal" data-target="#myModal">
+                            View
+             </button>
+               <button type="btn" class="btn btn-primary" ng-click="deleteUCMovie(movie.movieId)">Delete</button><br>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div width='640' height='360' class="modal-body">
+                      <div class="row">
+                          <div class="col-md-3">movieId:</div><div class="col-md-9">{{UpCommingMovie.movieId}}</div>
+                          <div class="col-md-3">movieName:</div><div class="col-md-9">{{UpCommingMovie.movieName}}</div>
+                          <div class="col-md-3">ditectorProducer:</div><div class="col-md-9">{{UpCommingMovie.ditectorProducer}}</div>
+                          <div class="col-md-3">cast:</div><div class="col-md-9">{{UpCommingMovie.cast}}</div>
+                          <div class="col-md-3">others:</div><div class="col-md-9">{{UpCommingMovie.others}}</div>
+                          <div class="col-md-3">expReleaseDate:</div><div class="col-md-9">{{UpCommingMovie.expReleaseDate}}</div>
+                          <div class="col-md-3">picRoute:</div><div class="col-md-9">{{UpCommingMovie.picRoute}}</div>
+                          <div class="col-md-3">details:</div><div class="col-md-9">{{UpCommingMovie.details}}</div>
+                        </div>
+
+                      <br><br><br>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-12">
+       <h2><center> Add Reviews </center></h1>
+       <form role="form" name="addReviewsForm" class="form-horizontal">
+         <div class="row">
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Name</label>
+               <div class="col-md-8">
+                 <input class= "form-control" ng-model="review.MovieName" type="text">
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Poster</label>
+               <div class="col-md-8">
+                 <input class= "form-control" ng-model="review.MoviePoster" type="text">
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie CastNCrew</label>
+               <div class="col-md-8">
+                 <textarea  rows="10" class= "form-control" ng-model="review.MovieCastNCrew" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Positives</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MoviePositives" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Negatives</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieNegatives" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Rating</label>
+               <div class="col-md-8">
+                 <input class= "form-control" ng-model="review.MovieRating" type="text">
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie SingleLineReview</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieSingleLineReview" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Review</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieReview" row="20" col="10" type="textarea" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Director</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieDirector" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Producer</label>
+               <div class="col-md-8">
+                 <textarea  rows="10" class= "form-control" ng-model="review.MovieProducer" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Music</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieMusic" type="text" />
+               </div>
+           </div>
+           <div class="form-group">
+               <label class="col-md-3">Movie Story</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieStory" type="text" />
+               </div>
+           </div>
+
+           <div class="form-group">
+               <label class="col-md-3">Movie Tech</label>
+               <div class="col-md-8">
+                 <textarea rows="10" class= "form-control" ng-model="review.MovieTech" type="text" />
+               </div>
+           </div>
+           <div class="form-group">
+               <label class="col-md-3"></label>
+               <div class="col-md-8">
+                 <button ng-click="addReviewItem(review)" class= " btn-md btn btn-primary" type="button">Save</button>
+               </div>
+           </div>
+         </div>
+       </form>
+      <div>
+    </div>
+   </div>
+</div>

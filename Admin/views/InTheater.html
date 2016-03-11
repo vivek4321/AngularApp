@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="">
+        <form role="form" class="form-horizontal" name="add-trailers-form" >
+          <h3>Add In Theater Movie</h3>
+          <div class="row">
+            <div class="form-group">
+              <label class="col-md-3">Movie Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="IT.movieName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">Pic Url</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="IT.picURL">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">Movie cast</label>
+              <div class="col-md-9">
+                <textarea  type="text" rows="5" class="form-control" ng-model="IT.cast" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">others</label>
+              <div class="col-md-9">
+                <textarea  type="text" rows="5" class="form-control" ng-model="IT.others" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">Movie details</label>
+              <div class="col-md-9">
+                <textarea  type="text" rows="5" class="form-control" ng-model="IT.details" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3"></label>
+              <div class="col-md-9">
+                <button type"reset" ng-click="clearIT()" class="btn btn-primary">Clear</button>
+
+                <button type"button" ng-click="addITheater(IT)" class="btn btn-primary pull-right">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <div class="row">
+          <input type="text" class="form-control" ng-model="queryITheaters" placeholder="search"><br>
+          <div class="col-md-4" ng-repeat="IT in ITheaters | filter:queryITheaters | orderBy : '-inTheaterId'">
+            <p >ID: {{IT.inTheaterId}}</p>
+            <p >Movie: {{IT.movieName}}</p>
+            <img alt="img" class="img-thumbnail" width="304" height="236" ng-src="{{IT.picURL}}">
+                          <!-- Button trigger modal -->
+              <button type="button" value={{IT.movieName}} id={{IT.inTheaterId}} ng-click="getITheaterById(IT.inTheaterId)" class="btn btn-primary btn-md"  data-toggle="modal" data-target="#myModal">
+                            View
+             </button>
+               <button type="btn" class="btn btn-primary" ng-click="deleteITheater(IT.inTheaterId)">Delete</button><br>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div width='640' height='360' class="modal-body">
+                      <div class="row">
+                          <p class="col-md-3">movieId:</p><p class="col-md-9">{{ITMovie.inTheaterId}}</p>
+                          <p class="col-md-3">movieName:</p><p class="col-md-9">{{ITMovie.movieName}}</p>
+                          <p class="col-md-3">cast:</p><p class="col-md-9">{{ITMovie.cast}}</p>
+                          <p class="col-md-3">others:</p><p class="col-md-9">{{ITMovie.others}}</p>
+                          <p class="col-md-3">picRoute:{{ITMovie.picURL}}</p><p class="col-md-9"><img alt="img" class="img-thumbnail" width="304" height="236" ng-src="{{ITMovie.picURL}}" /></p>
+                          <p class="col-md-3">details:</p><p class="col-md-9">{{ITMovie.details}}</p>
+                        </div>
+                      <br><br>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

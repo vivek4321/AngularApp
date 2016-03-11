@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <html ng-app="TApp">
+    <head>
+      <!-- SCROLLS -->
+      <!-- load bootstrap  via CDN -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="js/sender-js.js"></script>
+      <script src="app/script2.js"></script>
+      <script src="app/services.js"></script>
+      <script src="app/routes.js"></script>
+      <script src="css/Tcss.css"></script>
+      <script src="app/controller.js"></script>
+      <script src="app/javascriptPlain.js"></script>
+    </head>
+    <body >
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+          <!-- Fixed navbar -->
+ <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+   <div class="container">
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="#">T</a>
+     </div>
+     <div id="navbar" class="navbar-collapse collapse">
+       <ul class="nav navbar-nav">
+         <li class="active"><a href="#home">Home</a></li>
+         <li><a href="#news">News</a></li>
+         <li><a href="#reviews">Reviews</a></li>
+         <li><a href="#trailers">Trailers</a></li>
+         <li><a href="#images">Images</a></li>
+         <li><a href="#InTheaters">In Theaters</a></li>
+         <li><a href="#upComing">Up Comming Movies</a></li>
+         <li><a href="#event">Events</a></li>
+         <!-- <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+           <ul class="dropdown-menu">
+             <li><a href="#">Action</a></li>
+             <li><a href="#">Another action</a></li>
+             <li><a href="#">Something else here</a></li>
+             <li role="separator" class="divider"></li>
+             <li class="dropdown-header">Nav header</li>
+             <li><a href="#">Separated link</a></li>
+             <li><a href="#">One more separated link</a></li>
+           </ul>
+         </li> -->
+       </ul>
+     </div><!--/.nav-collapse -->
+   </div>
+ </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="main">
+          <br><br><br>
+          <div ng-view></div>
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+
+        </div>
+        <footer class="footer navbar-inverse">
+          <div class="container">
+
+            <p class="text-muted">Place sticky footer content here.</p>
+          </div>
+        </footer>
+
+    </body>
+    </html>

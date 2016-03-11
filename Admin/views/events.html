@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="">
+        <form role="form" class="form-horizontal" name="add-trailers-form">
+          <h3>Add Events</h3>
+          <div class="row">
+            <div class="form-group">
+              <label class="col-md-3">Event Name</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="event.eventName">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">event Description</label>
+              <div class="col-md-9">
+              <textarea type="text" rows="5" class="form-control" ng-model="event.eventDesc"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">event picURL</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="event.picURL">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">details</label>
+              <div class="col-md-9">
+                <textarea type="text" rows="5"  class="form-control" ng-model="event.details"/>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-3"></label>
+              <div class="col-md-9">
+                <button type"reset" ng-click="clearIT()" class="btn btn-primary">Clear</button>
+                <button type"button" ng-click="addEvent(event)" class="btn btn-primary pull-right">Submit</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <div class="row">
+          <input type="text" class="form-control" ng-model="queryEvents" placeholder="search"><br>
+          <div class="col-md-4" ng-repeat="event in events | filter:queryEvents | orderBy : '-eventId'">
+            <p >ID: {{event.eventId}}</p>
+            <p >Movie: {{event.eventName}}</p>
+            <p>{{event.picURL}}<br>
+               <img alt="img" class="img-thumbnail" width="150" height="136" ng-src="{{event.picURL}}"> </p>
+                          <!-- Button trigger modal -->
+              <button type="button" value={{event.eventName}} id={event.eventId}} ng-click="getEventById(event.eventId)" class="btn btn-primary btn-md"  data-toggle="modal" data-target="#myModal">
+                            View
+             </button>
+               <button type="btn" class="btn btn-primary" ng-click="deletevent(event.eventId)">Delete</button><br>
+              <!-- Modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div width='640' height='360' class="modal-body">
+                      <div class="row">
+                          <p class="col-md-3">eventName:</p><p class="col-md-9">{{SingleEvent.eventName}}</p>
+                          <p class="col-md-3">eventDesc:</p><p class="col-md-9">{{SingleEvent.eventDesc}}</p>
+                          <p class="col-md-3">picURL:</p><p class="col-md-9"><img alt="img" class="img-thumbnail" width="304" height="236" ng-src="{{SingleEvent.picURL}}"></p>
+                          <p class="col-md-3">cast:</p><p class="col-md-9">{{SingleEvent.eventDetails}}</p>
+                        </div>
+                      <br><br><br>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="">
+        <form role="form" class="form-horizontal" name="add-trailers-form" >
+          <h3>Add Youtube Video</h3>
+          <div class="row">
+            <div class="form-group">
+              <label class="col-md-3">Title</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="trailer.trailerMoviename">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3">youtube_url</label>
+              <div class="col-md-9">
+                <input type="text" class="form-control" ng-model="trailer.trailerUrl">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3"></label>
+              <div class="col-md-9">
+                <button type"button" ng-click="addTrailer(trailer)" class="btn btn-primary pull-right">Submit</button>
+              </div>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="jumbotron">
+        <div class="row">
+          <button class='btn btn-primary col-md-4 form-control' ng-click='deleteTrailer(2,2)'>Pause Video</button> <br><br>
+          <input type="text" class="form-control" ng-model="queryTrailers" placeholder="search"><br>
+          <div class="col-md-4" ng-repeat="showTrailer in showTrailers | filter:queryTrailers | orderBy : '-trailerId'">
+            <div>{{showTrailer.trailerMoviename}}</div>
+            <p>ID#{{showTrailer.trailerId}} URL#{{showTrailer.trailerUrl}}</p>
+                          <!-- Button trigger modal -->
+              <button type="button" value={{showTrailer.trailerUrl}} id={{showTrailer.trailerId}} onclick="myFunction(this.value,this.id)" class="btn btn-primary btn-md"  data-toggle="modal" data-target="#myModal">
+                View
+              </button>
+
+              <!-- Modal -->
+              <div class="modal fade" style="width: 100%" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" style="width: 50%" role="document">
+                  <div class="modal-content" style="width: 100%" >
+                    <!-- <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    </div> -->
+                    <div  class="modal-body">
+                      <div class="row">
+                      <div id=parent_video>
+                      <div id="video"></div>
+                      </div>
+                      <br><br><br>
+                    </div>
+                    </div>
+
+                    <!-- <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+
+            <button type="btn" class="btn btn-primary" ng-click="deleteTrailer(showTrailer.trailerId)">Delete</button><br>
+            <br>
+          </div>
+        </div>
+        <div class="row">
+            <!-- <center><h2>View all Viedios</h2></center> -->
+          <div  >
+            <!-- <div id="title"></div><br> -->
+            <!-- <div id=parent_video>
+            <div id="video"></div><br>
+            </div> -->
+            <!-- <div id="deleteTrailerButton"></div><br> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
