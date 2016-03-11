@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+       <div class="row ">
+          <div class="col-md-8 jumbotron">
+            <h3><center class="headerC" >News Page</center></h3>
+              <div ng-repeat="data in newsList">
+                <a href="#newsList/{{data.nID}}" class="blackC" ng-click="getNewsItem(data.nID)">{{data.nTitle}}</br></br></a>
+              </div>
+          </div>
+          <div class="col-md-4 jumbotron">
+            <youtube></youtube>
+            <facebook></facebook>
+            <twitter></twitter>
+          </div>
+       </div>
+      <div>
+      </div>
+    </div>
+   </div>
+ </div>
+</div>

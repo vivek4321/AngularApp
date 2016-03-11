@@ -1,0 +1,33 @@
+<div class="container" >
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+       <div class="row ">
+          <div class="col-md-12 jumbotron">
+
+          <div class="col-md-4" ng-repeat="showImage in gallery | orderBy : 'imageID'">
+            <a href=""> <img alt="img" id="{{showImage.imageID}}" onclick="ImageFunc(this.src)" data-toggle="modal" data-target="#myModal" class="img-thumbnail" width="300" height="236" ng-src="{{showImage.rootPath}}"/></a>
+                                      <!-- Button trigger modal -->
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div  class="modal-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                        <div id="parent_img">
+                      <div id="img">
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       <div>
+      </div>
+    </div>
+   </div>
+ </div>
+</div>

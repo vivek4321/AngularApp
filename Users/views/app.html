@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+    <html ng-app="app">
+    <head>
+      <!-- SCROLLS -->
+      <!-- load bootstrap  via CDN -->
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+      <!-- SPELLS -->
+      <!-- load angular and angular route via CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="app/userRoutes.js"></script>
+      <script src="css/css.css"></script>
+      <script src="app/javascriptPlain.js"></script>
+      <script src="app/userController.js"></script>
+      <style>
+      .modal-dialog {
+        max-width : 100% ;
+      }
+      .enlargedImg {
+        width:100%;
+        height: 100%;
+      }
+      .borderLess{
+        border: none;
+        padding: 10px;
+        background: none;
+      }
+
+      .redC {
+        color: red;
+      }
+      .blackC{
+        color:black;
+      }
+      .blueC{
+        color: blue;
+      }
+      .headerC{
+        color: blue;
+      }
+
+      </style>
+      <script>
+      $( document ).ready(function(){
+        $("html").click(function (e)
+{
+    if (e.target == document.getElementById("myModal")){
+        alert("In");
+        myFunction(2,2);
+      }
+
+      });
+    });
+
+      </script>
+
+    </head>
+    <body >
+
+        <!-- HEADER AND NAVBAR -->
+        <header>
+          <!-- Fixed navbar -->
+ <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+   <div class="container">
+     <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </button>
+       <a class="navbar-brand" href="#">T</a>
+     </div>
+     <div id="navbar" class="navbar-collapse collapse">
+       <ul class="nav navbar-nav">
+         <li class="active"><a href="#home">Home</a></li>
+         <li><a href="#news">News</a></li>
+         <li><a href="#reviews">Reviews</a></li>
+         <li><a href="#trailers">Trailers</a></li>
+         <li><a href="#images">Images</a></li>
+         <li><a href="#InTheaters">In Theaters</a></li>
+         <li><a href="#upComing">Up Comming Movies</a></li>
+         <li><a href="#event">Events</a></li>
+         <!-- <li class="dropdown">
+           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+           <ul class="dropdown-menu">
+             <li><a href="#">Action</a></li>
+             <li><a href="#">Another action</a></li>
+             <li><a href="#">Something else here</a></li>
+             <li role="separator" class="divider"></li>
+             <li class="dropdown-header">Nav header</li>
+             <li><a href="#">Separated link</a></li>
+             <li><a href="#">One more separated link</a></li>
+           </ul>
+         </li> -->
+       </ul>
+     </div><!--/.nav-collapse -->
+   </div>
+ </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="main">
+          <br><br><br>
+          <div class="container">
+            <div class="">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class=" well">
+                    <center><h3  class="headerC"><ul>News</ul></h3></center>
+                    <div ng-repeat="newsData in newsObjH | limitTo:'3'">
+                      <a href="#newsList/{{newsData.nID}}" class="blackC" ng-click="getNewsItem(newsData.nID)">{{newsData.nTitle}}</br></br></a>
+                    </div>
+                    <a href="#/news" class="pull-right">more</a></br></br>
+                  </div>
+                  <div class=" well">
+                    <center><h3 class="headerC"><ul>Reviews</ul></h3></center>
+                    <div ng-repeat="Rdata in reviewsObjH | limitTo:'3'">
+                      <a href="#SingleMovieReview/{{Rdata.reviewID}}" class="blackC" ng-click="getMovieItem(Rdata.reviewID)">{{Rdata.MovieName}}</br></br></a>
+                    </div>
+                    <a href="#/reviews" class="pull-right">more</a></br></br>
+                  </div>
+                  <div class=" well">
+                    <center><h3 class="headerC"><ul>Gallery</ul></h3></center>
+                    <div ng-repeat="Gdata in galObjH | limitTo:'3'">
+                      <a href="#gallery/{{Gdata.galleryName}}" class="blackC" ng-click="GetImages(Gdata.galleryName)">{{Gdata.galleryName}}</br></br></a>
+                    </div>
+                    <a href="#/images" class="pull-right">more</a></br></br>
+                  </div>
+                  <div class=" well">
+                    <center><h3 class="headerC"><ul>Trailers</ul></h3></center>
+                    <div ng-repeat="Tdata in traiObjH | limitTo:'3'">
+                      <button type="" value={{Tdata.trailerUrl}} class="borderLess" id={{Tdata.trailerId}} onclick="myFunction(this.value,this.id)"   data-toggle="modal" data-target="#myModal">
+                        {{Tdata.trailerMoviename}}
+                      </button>
+                      <div class="modal fade" style="width: 100%"  style id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" style="width: 50%" role="document">
+                          <div class="modal-content" style="width: 100%">
+                            <div class="modal-body">
+                              <div class="row">
+                                <div class="col-md-12">
+                              <div class="col-md-12" id=parent_video>
+                              <div class="col-md-12" id="video"></div>
+                              </div>
+                            </div>
+                              <br><br><br>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#/reviews" class="pull-right">more</a></br></br>
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class=" well">
+                    <center><h3  class="headerC"><ul>In Theaters</ul></h3></center>
+                    <div class="row">
+                    <div class="col-md-4 pull-left" ng-repeat="IT in ITheatersH">
+                      <p>Movie: {{IT.movieName}}</p>
+                      <img alt="img" class="img-thumbnail img-responsive " ng-src="{{IT.picURL}}">
+                      </div>
+                      <!-- <a href="#newsList/{{newsData.nID}}" class="blackC" ng-click="getNewsItem(newsData.nID)">{{newsData.nTitle}}</br></br></a> -->
+                    </div>
+                    <a href="#/InTheaters" class="pull-right"><h3>more</h3></a></br></br>
+                  </div>
+                  <div class=" well">
+                    <center><h3  class="headerC"><ul>Events</ul></h3></center>
+                    <div class="row">
+                    <div class="col-md-4 pull-left" ng-repeat="event in eventsH | orderBy : '-eventId' | limitTo:'6'">
+                      <p>{{event.eventName}}</p>
+                      <a href="#eventList/{{event.eventId}}"  ng-click="getEventByid(event.eventId)"><div class="blackC"><img alt="img" class="img-thumbnail img-responsive " ng-src="{{event.picURL}}"></div></a><br>
+                        <!-- <div class="col-md-12" ng-repeat="event in events | filter:queryEvents | orderBy : '-eventId'">
+                          <a href="#eventList/{{event.eventId}}"  ng-click="getEventByid(event.eventId)"><div class="blackC">{{event.eventName}}</div></a><br>
+                        </div> -->
+                    </div>
+                  </div>
+                  <a href="#/event" class="pull-right"><h3>more</h3></a><br><br>
+                </div>
+                <div class=" well">
+                  <center><h3  class="headerC"><ul>Up Comming Movies</ul></h3></center>
+                  <div class="row">
+                  <div class="col-md-4 pull-left" ng-repeat="movie in UCMovies | orderBy : '-trailerId'">
+                    <p>{{movie.movieName}}</p>
+                  <a href="#singleUpMovInfo/{{movie.movieId}}" class="blackC img-thumbnail img-responsive" ng-click="getMovieByid(movie.movieId)"><img alt="img" class="img-thumbnail img-responsive " height="100"  ng-src="{{movie.picRoute}}"></a>
+                    <br><br>
+                      </div>
+                </div>
+                <a href="#/event" class="pull-right"><h3>more</h3></a><br><br>
+              </div>
+              </div>
+            </div>
+          </div>
+
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+
+        </div>
+
+    </body>
+    </html>

@@ -1,0 +1,31 @@
+<div class="container"  data-ng-init="init()">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+       <div class="row ">
+          <div class="col-md-8 jumbotron">
+            <center><h3>Review:{{movieItem.MovieName}} <span>{{movieItem.MovieRating}}</span></h3></center><br>
+            <br>
+              <center><img height="200"  class="img-responsive" ng-src="{{movieItem.MoviePoster}}"></center>
+            <br>
+            <p>MovieCastNCrew:{{movieItem.MovieCastNCrew}}</p>
+            <p>MovieDirector:{{movieItem.MovieDirector}}</p>
+            <p>MovieProducer:{{movieItem.MovieProducer}}</p>
+            <p>MovieMusic:{{movieItem.MovieMusic}}</p>
+
+            <p>Movie Positives:</p>{{movieItem.MoviePositives}}
+            <p>Movie Negatives:</p>{{movieItem.MovieNegatives}}
+            <p>Movie Review:</p>{{movieItem.MovieReview}}
+            <p>Movie Story:</p>{{movieItem.MovieStory}}
+            <p>Movie Technical:</p>{{movieItem.MovieTech}}<br>
+
+            <p>Movie Single Line Review:{{movieItem.MovieSingleLineReview}}</p>
+          </div>
+          <div class="col-md-4 jumbotron"></div>
+       </div>
+      <div>
+      </div>
+    </div>
+   </div>
+ </div>
+</div>

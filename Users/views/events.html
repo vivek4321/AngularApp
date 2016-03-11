@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+       <div class="row ">
+          <div class="col-md-8 jumbotron">
+            <h3><center class="blueC">Events Page</center></h3>
+              <div class="col-md-12" ng-repeat="event in events | filter:queryEvents | orderBy : '-eventId'">
+                <a href="#eventList/{{event.eventId}}"  ng-click="getEventByid(event.eventId)"><div class="blackC">{{event.eventName}}</div></a><br>
+              </div>
+            </div>
+            <div class="col-md-4 jumbotron"></div>
+        </div>
+      </div>
+    </div>
+   </div>
+ </div>
