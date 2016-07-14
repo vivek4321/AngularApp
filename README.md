@@ -1,2 +1,2 @@
 # AngularApp
-LearningProject
+Movie Reviews Project
